@@ -2,8 +2,11 @@
 Decorators:
 -----------
 
-Decorators adds extra functionality to some existing function, without modifying the code.
 
+***** Decorators is a function, which takes some existing function as an argument, adds extra functionality and returns some existing function, without modifying the code. *****
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
 Such functions that take other functions as arguments are also called higher order functions.
 
 Functions and methods are called callable as they can be called.
@@ -17,3 +20,5 @@ We can use the @ symbol along with the name of the decorator function and place 
 function(*args, **kwargs)
 
 args will be the tuple of positional arguments and kwargs will be the dictionary of keyword arguments.
+
+------------------------------------------------------------------------------------------------------------------------------------------------

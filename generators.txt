@@ -1,1 +1,42 @@
+What are Generators ?
+----------------------
+
+1. Generators are functions that return traversable objects (or) items.
+
+2. This function do not produce all the items at once.
+
+3. Rather, They produce one at a time and only when required.
+
+4. Runs along with 'for' loops
+
+5. Without Generatos producing iterables is difficult and lengthy.
+
+
+Advantages of Generators:
+-------------------------
+
+1. it implements __iter__(), __next__() and StopIteration automatically.
+
+2. Better memory management & utilization.
+
+3. can be used to produce infinite items.
+
+
+Diff Between Generator functions and Normal Functions ???
+---------------------------------------------------------
+
+1) Make Use of 'yield' keyword                                1) Make use of 'return' keyword
+
+2)Run when 'next()' method is called                          2) run when name of the method is called
+
+3) produce items one at a time & only when required           3) produce all items at once.
+
+
+
+use of 'For' loop in generators:
+--------------------------------
+
+To execute the generator function at once, you can use 'for loop'.
+
+This loop iterates over all the objects and after all implementations, it executes StopIteration.
 

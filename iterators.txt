@@ -1,1 +1,20 @@
+Iterators:
+-----------
 
+1) Iterators are objects that can be iterated upon.
+
+2) we can build our own iterator using __iter__ and __next__ methods.
+
+3) Iterators are everywhere in Python.
+
+4) Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.
+
+5) Technically speaking, a Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
+
+6) An object is called iterable if we can get an iterator from it. Most built-in containers in Python like: list, tuple, string, dict, sets etc. are iterables.
+
+7) The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
+
+8) We use the next() function to manually iterate through all the items of an iterator. 
+
+9) When we reach the end and there is no more data to be returned, it will raise the StopIteration Exception.

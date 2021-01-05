@@ -29,3 +29,11 @@ custom iterator:
 The __iter__() method returns the iterator object itself. If required, some initialization can be performed.
 
 The __next__() method must return the next item in the sequence. On reaching the end, and in subsequent calls, it must raise StopIteration.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+For loop:
+---------
+The for loop actually creates an iterator object and executes the next() method for each loop.
+
+-------------------------------------------------------------------------------------------------------------

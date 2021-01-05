@@ -18,3 +18,14 @@ Iterators:
 8) We use the next() function to manually iterate through all the items of an iterator. 
 
 9) When we reach the end and there is no more data to be returned, it will raise the StopIteration Exception.
+
+10) A more elegant way of automatically iterating is by using the for loop.
+
+------------------------------------------------------------------------------------------------------------
+
+custom iterator:
+----------------
+
+The __iter__() method returns the iterator object itself. If required, some initialization can be performed.
+
+The __next__() method must return the next item in the sequence. On reaching the end, and in subsequent calls, it must raise StopIteration.

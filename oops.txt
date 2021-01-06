@@ -1,0 +1,35 @@
+#object oriented programming
+
+1) It is an approach used for creating neat and reusable code, instead of a redundant one.
+
+2) the program is divided into several mini-programs.
+
+-------------------------------------------------------------------------------------------------------------------
+Diff b/w oops and procedure oriented programming....
+
+
+1) It is a bottom-up approach                                                   1)It is a top-down approach
+
+2) Program is divided into objects                                              2) Program is divided into functions
+
+3) Makes use of Access modifiers ‘public’, private’, protected’                 3) Doesn’t use Access modifiers
+
+4) It is more secure                                                            4) It is less secure
+
+5) Object can move freely within member functions                               5) Data can move freely from function to function within programs
+
+6) It supports inheritance                                                      6) It does not support inheritance
+
+--------------------------------------------------------------------------------------------------------------------------
+
+1) A class is a collection of objects 
+
+2) real-life example- think of an office going ’employee’ as a class and all the attributes related to it
+like ’emp_name’, ’emp_age’, ’emp_salary’, ’emp_id’ as the objects in Python.
+
+3) Class is defined under a “class” Keyword.
+
+4) Objects are an instance of a class that can access the data.
+
+5)  Syntax: obj = class1().  Here obj is the “object “ of class1.
+

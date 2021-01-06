@@ -32,4 +32,12 @@ like ’emp_name’, ’emp_age’, ’emp_salary’, ’emp_id’ as the object
 4) Objects are an instance of a class that can access the data.
 
 5)  Syntax: obj = class1().  Here obj is the “object “ of class1.
+----------------------------------------------------------------------------
+Object-Oriented Programming methodologies deal with the following concepts.
 
+Inheritance
+Polymorphism
+Encapsulation
+Abstraction
+
+----------------------------------------------------------------------------------

@@ -37,3 +37,23 @@ i =  40
 item =  [90]
 
 i =  90
+
+------------------------------------------------------------------------
+
+a = [['A','B'],['a','b'],'-']
+#output ['A-a', 'B-b']
+
+capital, small, hyphen = a                #we are unpacking here......
+
+#capital  #['A', 'B']
+#small    #['a', 'b']
+#hyphen   # '-'
+
+l = []
+for i in range(len(a)-1):
+	res = ''.join(capital[i] + hyphen + small[i])    #''.join('A' + '-' + 'a')
+	l.append(res)					 #''.join('B' + '-' + 'b')
+	
+print(l)                                  #['A-a', 'B-b']
+
+----------------------------------------------------------------------------------------

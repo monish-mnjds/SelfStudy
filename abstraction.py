@@ -25,9 +25,9 @@ print("Area of a circle:", cir.calculate_area())    #call to 'calculate_area' me
 
 from abc import ABC
 class Shape(ABC):
-    def print(self):
+    def printing(self):
         print("I am a normal method defined inside the abstract class 'Shape'")
-    def calculate_are(self):
+    def calculate_area(self):
         pass
 
 class Rectangle(Shape):

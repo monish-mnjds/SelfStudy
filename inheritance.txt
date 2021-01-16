@@ -1,0 +1,5 @@
+Inheritance enables us to define a class that takes all the functionality from a parent class and allows us to add more.
+
+Derived class inherits features from the base class where new features can be added to it. This results in re-usability of code.
+
+The method of inheriting the properties of parent class into a child class is known as inheritance.

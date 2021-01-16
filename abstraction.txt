@@ -1,0 +1,46 @@
+Abstraction in Python is the process of hiding the real implementation 
+of an application from the user and emphasizing only on usage of it.
+
+------------------------------------------------------------------------------------
+Why Do We Need Abstraction?
+
+Through the process of abstraction in Python, a programmer can hide 
+all the irrelevant data/process of an application in order to 
+reduce complexity and increase efficiency.
+
+---------------------------------------------------------------------------------------
+abstraction can be achieved by using abstract classes and methods in our programs.
+
+A class containing one or more abstract methods is called an abstract class.
+
+Abstract methods do not contain any implementation. Instead, all the 
+implementations can be defined in the methods of sub-classes that inherit 
+the abstract class. An abstract class is created by importing a class named 'ABC' 
+from the 'abc' module and inheriting the 'ABC' class.
+--------------------------------------------------------------------------------------- 
+Below is the syntax for creating the abstract class.
+
+Syntax:
+
+from abc import ABC
+Class ClassName(ABC):
+-----------------------------------------------------------------------------------
+
+refer: abstraction.py file
+--------------------------
+
+the class 'ABC' is imported to and inherited by the class 'shape'. 
+The class 'Shape' becomes an abstract class when we define abstract methods in it.
+ As we already discussed, abstract methods should not contain any implementation. 
+So, we can define abstract methods using the 'pass' statement
+
+Here, calculate_area is the abstract method of the abstract class 'Shape'.
+ The implementation of this abstract class can be defined in the sub-classes that 
+inherit the class 'Shape'.
+-------------------------------------------------------------------------------------
+Important points:
+
+An abstract class can have both a normal method and an abstract method
+
+An abstract class cannot be instantiated, ie., we cannot create objects 
+for the abstract class

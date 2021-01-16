@@ -2,6 +2,8 @@ polymorphism refers to the ability of a method to process objects differently de
 
 Polymorphism in Python programs can be achieved by defining two or more methods with the same name inside two or more classes.
 
+it provides flexibility, using which a code can be extended and easily maintained over time.
+
 Method overriding
 ------------------
 

@@ -1,1 +1,39 @@
+Encapsulation in Python is the process of wrapping up variables and methods into a single entity.
 
+ a class is an example that wraps all the variables and methods defined inside it.
+ 
+ In the real world, consider your college as an example. Each and every department's student records 
+ are restricted only within the respective department. CSE department faculty cannot access the ECE 
+ department student record and so on. Here, the department acts as the class and student records act
+ like variables and methods.
+ 
+ ----------------------------------------------------------------------------------------------------
+ 
+ Why Do We Need Encapsulation?
+ -----------------------------
+
+Encapsulation acts as a protective layer by ensuring that, access to wrapped data is not possible 
+by any code defined outside the class in which the wrapped data are defined. Encapsulation provides
+security by hiding the data from the outside world.
+
+In Python, Encapsulation can be achieved by declaring the data members of a class either as [--- private (or) protected ---].
+
+In Python, 'Private' and 'Protected' are called (Access Modifiers), as they modify the access of variables (or) methods defined in a class.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Encapsulation Using Private Members
+-----------------------------------
+
+If we declare any variable or method as private, then they can be accessed only within the class in which they are defined. 
+In Python, private members are preceded by two underscores.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Encapsulation Using Protected Members
+-------------------------------------
+
+Protected members can be accessed within the class in which they are defined and also within the derived classes.
+In Python, protected members are preceded by a single underscore.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------

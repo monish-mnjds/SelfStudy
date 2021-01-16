@@ -3,3 +3,7 @@ Inheritance enables us to define a class that takes all the functionality from a
 Derived class inherits features from the base class where new features can be added to it. This results in re-usability of code.
 
 The method of inheriting the properties of parent class into a child class is known as inheritance.
+
+Inheritance provides code reusability as we can use an existing parent class to create a new child class instead of creating a child class from scratch.
+
+using super() function we can access the parent class methods and constructor.

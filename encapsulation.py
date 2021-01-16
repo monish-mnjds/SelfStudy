@@ -5,13 +5,13 @@
 #'length' and 'breadth' are the two private variables declared and can be accessed within the class 'Rectangle'.
 
 class Rectangle:
-  __length = 0 #private variable
-  __breadth = 0 #private variable
-  def __init__(self): #constructor
-    self.__length = 5
-    self.__breadth = 3    #printing values of the private variable within the class
-    print(self.__length)
-    print(self.__breadth)
+    __length = 0 #private variable
+    __breadth = 0 #private variable
+    def __init__(self): #constructor
+        self.__length = 5
+        self.__breadth = 3    #printing values of the private variable within the class
+        print(self.__length)
+        print(self.__breadth)
 
 rec = Rectangle() #object created for the class 'Rectangle'
 

@@ -21,21 +21,24 @@ print("Area of a circle:", cir.calculate_area())    #call to 'calculate_area' me
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-An abstract class having a normal method and an abstract method
+# An abstract class having a normal method and an abstract method
 
 from abc import ABC
-class Shape(ABC):def print(self):
-    print("I am a normal method defined inside the abstract class 'Shape'")
-  def calculate_are(self):
-    pass
+class Shape(ABC):
+    def print(self):
+        print("I am a normal method defined inside the abstract class 'Shape'")
+    def calculate_are(self):
+        pass
 
 class Rectangle(Shape):
-  length = 5
-  breadth = 3def calculate_area(self):
-    return self.length * self.breadth
+    length = 5
+    breadth = 3
+    def calculate_area(self):
+        return self.length * self.breadth
 
 rec = Rectangle() #object created for the class 'Rectangle'
 rec.print()
 print("Area of a rectangle:", rec.calculate_area()) #call to 'calculate_area' method defined inside the class 'Rectangle'
 
 ---------------------------------------------------------------------------------------------------------------------------------------
+

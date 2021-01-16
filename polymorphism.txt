@@ -1,6 +1,6 @@
-In programming, polymorphism means same function name, being used in different ways.
+polymorphism refers to the ability of a method to process objects differently depending on their data type or class.
 
-The literal meaning of polymorphism is the condition of occurrence in different forms.
+Polymorphism in Python programs can be achieved by defining two or more methods with the same name inside two or more classes.
 
 Method overriding
 ------------------

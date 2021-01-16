@@ -43,6 +43,15 @@ for country in (ind, usa):
 	country.language() 
 	country.status() 
 
+	 #or
+		
+def func(obj): 
+       obj.capital() 
+       obj.language()
+       obj.status()
+         
+func(ind) 
+func(usa)
 -----------------------------------------------------------------------------------------
 
 #method overriding

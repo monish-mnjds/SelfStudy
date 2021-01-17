@@ -143,8 +143,8 @@ class Web3(Web1, Web2):
         webbrowser.open("https://www.youtube.com/")
 
 w = Web3()
-
-Web3.__mro__
-Web3.mro()
+                    #method resolution order
+Web3.__mro__        #returns tuple  (<class '__main__.Web3'>, <class '__main__.Web1'>, <class '__main__.Web2'>, <class '__main__.Web'>, <class 'object'>)
+Web3.mro()          #returns list   [<class '__main__.Web3'>, <class '__main__.Web1'>, <class '__main__.Web2'>, <class '__main__.Web'>, <class 'object'>]
 
 ---------------------------------------------------------------------------------------------------------

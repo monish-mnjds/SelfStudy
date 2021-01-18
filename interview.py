@@ -57,3 +57,15 @@ for i in range(len(a)-1):
 print(l)                                  #['A-a', 'B-b']
 
 ---------------------------------------------------------------------------------------
+
+d = {'a':'apple','b':10.3,'c':{'x':25.3,'y':30}, 'd':15}
+
+for key, value in d.items():
+    if isinstance(value, (int, float)):
+        d[key] = value + 10
+    if isinstance(value, dict):
+        for k, v in value.items():
+            if isinstance(v, (int, float)):
+                d[key][k] = v + 10
+	
+--------------------------------------------------------------------------------------

@@ -35,7 +35,7 @@ class Circle(Shape):
 
 cr = Circle()
 
-#printing protected variablesoutsidethe class 'Shape' in which they are defined
+#printing protected variables outside the class 'Shape' in which they are defined
 print(cr.length)
 print(cr.breadth)
 

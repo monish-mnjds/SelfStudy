@@ -1,3 +1,32 @@
+import webbrowser
+
+class Web:
+    __url = 'https://www.github.com/monish-mnjds/'          #private access modifiers  
+
+    def __init__(self):                                     #it can be used within the base class & not in the derived class.
+        webbrowser.open(self.__url)
+
+w = Web()
+print(w._Web__url)  # we can access it but it is not recommended.
+
+------------------------------------------------------------------------------
+
+class Web:
+    _url = 'https://www.github.com/monish-mnjds/'           #protected access modifiers
+
+
+class Git(Web):                                             #it can be used within the base class as well as derived class.
+    def __init__(self):
+        webbrowser.open(self._url)
+
+g = Git()
+print(g._url)   # we can access it but it is not recommended.
+
+
+dir(g)
+dir(w)  #using this we can find the attributes which can be applied.
+
+------------------------------------------------------------------------------------------------------------------------------
 
 #If we declare any variable or method as private, then they can be accessed only within the class in which they are defined.
 #In Python, private members are preceded by two underscores.

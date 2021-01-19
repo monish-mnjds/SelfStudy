@@ -37,7 +37,7 @@ class Rectangle(Shape):
         return self.length * self.breadth
 
 rec = Rectangle() #object created for the class 'Rectangle'
-rec.print()
+rec.printing()
 print("Area of a rectangle:", rec.calculate_area()) #call to 'calculate_area' method defined inside the class 'Rectangle'
 
 ---------------------------------------------------------------------------------------------------------------------------------------

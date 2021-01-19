@@ -9,7 +9,7 @@ What are Generators ?
 
 4. Runs along with 'for' loops
 
-5. Without Generatos producing iterables is difficult and lengthy.
+5. Without Generators producing iterables is difficult and lengthy.
 
 
 Advantages of Generators:

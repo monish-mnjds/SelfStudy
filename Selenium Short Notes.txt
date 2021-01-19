@@ -1,0 +1,437 @@
+selenium Architecture:
+
+1) it provides various methods to perform browser actions
+2) it supports multiple languages
+
+while executing the scripts, the client library convert our code to json format
+and send as a request to driver over http.
+
+Browser drivers are responsible for controlling the actual browsers
+
+the driver interprets the incoming request from the client and controls the 
+actual browser
+
+once the browser operation is complete, the response is sent back to the 
+client library by driver in JSON format.
+
+client library interprets the JSON respone and prints the response in readable format.
+
+Browser Actions:
+----------------
+from selenium import webdriver
+driver = webdriver.Chrome("/users/demo/training/chromedriver")
+
+driver.maximize_window()
+driver.get('http://www.google.com')
+driver.current_url
+driver.title
+driver.refresh()
+driver.back()
+driver.forward()
+driver.close()   
+driver.quit()    
+
+Locators
+--------
+find_element method returns a web element if the element is found in the DOM/HTML.
+
+If no element is found, find_element method throws "NoSuchElementException".
+
+If there are multiple elements matching the same locator,
+find_element method returns the first matching element from the DOM.
+
+driver.find_element_by_link_text("Register").click()
+
+driver.find_element_by_name("FirstName").send_keys("Steve")
+
+driver.find_element_by_id("LastName").send_keys("Jobs")
+
+driver.find_element_by_partial_link_text("Shopping").click()
+
+driver.find_element_by_class_name('textField').send_keys("admin")
+
+If the class name has spaces, then it is considered as two different classes in CSS file.
+So for selenium to identify element by class name with spaces, 
+the space should be replaced by dot operator "."
+
+General Format for cssSelector.
+------------------------------
+
+HTMLTAG[property="value"]
+
+driver.find_element_by_css_selector("input[value='Search store']").send_keys("Computer")
+
+Xpath
+-----
+
+Xpath is the path of the element in HTML tree.
+
+While writing the xpath expression we specify the path using "/" (forward slash)
+
+First forward slash "/" represent the beginning of the HTML tree, it is called as root.
+
+After every "/" we must specify HTML tag for the immediate child node.
+
+If there are any duplicate elements, then we use index. 
+It should be used in square brackets "[]". Index starts from Digit one.
+
+Absolute xpath
+--------------
+Specifying the complete path of the element is called absolute xpath. 
+
+Since Absolute xpath is very lengthy and it is not practically possible to write relative xpath for bigger web applications with complex HTML hierarchy.
+
+To overcome the above problem, we use 
+Relative xpath.
+---------------
+
+"/" (Single forward slash) represents immediate child
+
+"//" (Double forward slash) represents any child.
+
+General format of the xpath
+---------------------------
+HTMLTAG[@Property="Value"]
+
+If the "text" attribute is used in the xpath,
+
+HTMLTAG[text()='value']
+
+find_elements
+--------------
+It returns list of web elements.
+
+If the locator is matching with one element, find_elements function returns list 
+of web elements with size 1.
+
+If the locator is not matching with any of the web elements, then the function 
+returns an empty list.
+
+elements = driver.find_elements_by_name("download")
+links = driver.find_elements_by_xpath("//a")
+images = driver.find_elements_by_xpath("//img")
+text = link.text
+url = link.get_attribute("href")
+
+Select Class
+------------
+
+from selenium.webdriver.support.select import Select
+
+element = driver.find_element_by_id("standard_cars")
+
+select = Select(lst_cars)
+# Create instance of Select class and pass the WebElement (element) 
+as constructor arguments
+
+select.select_by_visible_text("Honda")
+select.select_by_index(8)   
+select.select_by_value('11')   
+cars.deselect_by_visible_text('BMW')
+cars.deselect_by_index(1)
+
+
+bmonth = driver.find_element_by_name("birthday_month")
+b_month = Select(bmonth)
+b_month.select_by_visible_text("Aug")
+
+StaleElementReferenceException 
+------------------------------
+the entire page gets refreshed and all the DOM elements would have deleted and
+reloaded back in the DOM. So the reference to the list box would have lost. 
+It would be referring to the older referenceID. 
+But Selenium would have created a new referenceID for the list box.
+
+# Get all the options from the listbox
+cars = Select(lst_cars)
+
+opts = cars.options
+for item in opts:
+    print(item.text)
+
+print(cars.first_selected_option.text)
+all_opts = cars.all_selected_options
+for item in all_opts:
+    print(item.text)
+
+webdriver wait(explicit wait)
+-----------------------------
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+
+visibility_of
+-------------
+visibility_of checks if the web element is visible on the webpage. 
+If the element is not visible within timeout period, then "TimeoutException" is raised.
+
+If the element is not present on the DOM, then "NoSuchElementException" is raised.
+
+So to use the above condition, make sure that the element is present on the DOM.
+
+wait = WebDriverWait(driver, timeout=10)
+
+wait.until(ec.visibility_of(driver.find_element_by_name("fname")))
+
+visibility_of_element_located
+-----------------------------
+
+visibility_of_element_located checks if the web element is present on the DOM and 
+also visible on the webpage. (Both conditions will be checked)
+
+"TimeoutException" will be raised if either the element is not loaded onto the DOM or 
+the element is not visible on the web page within timeout period.
+
+The above condition makes sure that the element is present on DOM and also visible on 
+the web page.
+
+If the element is visible and is disabled due to some reasons, then 
+"ElementNotInteractableException" is raised.
+
+invisibility_of_element_located
+-------------------------------
+invisibility_of_element_located takes by locator as an argument. 
+It throws "TimeoutException" if the element is visible even after the 
+timeout period that is specified.
+
+If the web element does not exist on the DOM, "NoSuchElementException"
+or "StaleElementReferenceException" is NOT RAISED.
+
+ActionChains
+------------
+from selenium.webdriver.common.action_chains import ActionChains
+
+actions = ActionChains(driver)
+about = driver.find_element_by_xpath("//button[text()='About ']")
+actions.move_to_element(about).perform()
+
+#sending keyboard inputs
+from selenium.webdriver.common.keys import Keys
+actions = ActionChains(driver)
+actions.send_keys(Keys.ENTER).perform()
+
+Pop-ups
+-------
+
+Child-browser pop up or HTML pop up
+
+Alert/Confirmation/Java Script pop up
+
+Notification pop up
+
+win_handles = driver.window_handles  # Get all the window handles
+for handle in win_handles:
+    driver.switch_to.window(handle)
+    driver.close()
+
+driver.switch_to.window(win_handles[0]) # is always the parent browser.
+
+driver.switch_to.alert.accept()
+driver.switch_to.alert.dismiss()
+
+print(driver.switch_to.alert.text) # to get the text from the alert
+
+Note: If the alert popup is not present, NoAlertPresentException is raised by webdriver
+
+chromeOptions = webdriver.ChromeOptions()
+chromeOptions.add_argument("--disable-notifications")
+driver = webdriver.Chrome('./chromedriver', options=chromeOptions)
+ 
+xlrd
+----
+
+import xlrd
+wb = xlrd.open_workbook('sample.xlsx')
+ws = wb.sheet_by_name('Covid')    # Read all the rows from sheet Covid
+rows = ws.get_rows()
+#get_rows method on worksheet object returns a generator object
+
+# Each row in the excel sheet is being represented as a python list.
+# Each item of the list is of type "Cell"
+
+for row in rows:
+    print(row[0].value, row[1].value, row[2].value)
+
+pytest
+------
+What is pytest
+
+The pytest framework makes it easy to write small tests using Python.
+
+pytest implements the following standard test discovery:
+---------------------------------------------------------
+The module name should either start with test_* or *_test.
+
+All the classes inside the module should start from Test* (without an init method)
+
+All the test methods should start from test_*.
+
+If we don't follow the above naming conventions, then pytest will not pick up
+tests from the python file/module.
+
+Multiple ways of executing test's
+---------------------------------
+pytest #tests all the modules that starts with test_ or _test
+
+pytest test_spam.py # tests that particular module
+
+pytest test_library # tests that particular package
+
+pytest test_utility.py::TestUtility::test_even 
+	
+#	module 		class 		method
+
+pytest test_spam.py::test_spam  
+
+# 	module		method
+
+Grouping test's
+---------------
+
+    @pytest.mark.smoke
+
+    @pytest.mark.regression
+
+Ordering test's
+---------------
+In-order to change the execution order, we need to install a plugin pytest-ordering
+
+The order number can be any positive value starting zero. But the number can not be negative.
+
+    @pytest.mark.run(order=1)
+
+Managing Test Dependency
+------------------------
+
+In order make one test method to depend on the test result of another test method, 
+we need to install a plugin pytest-dependency
+
+It allows to mark some tests as dependent from other tests. These tests will then be
+skipped if any of the dependencies did fail or has been skipped.
+
+    @pytest.mark.dependency()
+    @pytest.mark.dependency(depends=["TestLogin::test_login"])
+
+Both the tests are decorated with pytest.mark.dependency()
+This will cause the test results to be registered internally and thus other tests may depend on them.
+
+pytest fixtures
+---------------
+
+Fixtures are used to run a piece of code repeatedly before and/or after 
+every test method/class/module/session based on the defined scope.
+
+@pytest.fixture()
+def init():
+    print('Launching Browser and Navigating to a URL')
+    yield
+    print('Closing Browser')
+
+The code before yield statement run's once before every test method and 
+the code after yield statement run's once after the completion of every test method.
+
+Passing fixture to each test method.
+------------------------------------
+
+class TestUtility:
+    def test_even(self, init):
+        assert is_even(10) == True
+
+    def test_odd(self, init):
+        assert is_even(9) == False
+
+OUTPUT:
+-------
+class TestUtility:
+    def test_even(self):
+        assert is_even(10) == True
+
+    def test_odd(self):
+        assert is_even(9) == False
+
+Passing fixture to all the test method's with using pytest.mark.usefixtures().
+--------------------------------------------------------------------------------
+
+@pytest.fixture(autouse=True)
+def init():
+    print('Launching Browser and Navigating to a URL')
+    yield
+    print('Closing Browser')
+
+Scoping of test fixtures.
+-------------------------
+The statements before yield keyword runs once before every class and statements after 
+yield keyword runs once after every class
+
+@pytest.fixture(scope="class")  #other scopes are module and session
+def init():
+    print('Launching Browser and Navigating to a URL')
+    yield
+    print('Closing Browser')
+
+If no scope is mentioned in the fixture, the default scope is at method/function level.
+ The statements before yield keyword runs once before every test method and statements 
+after yield keyword runs once after test method
+
+Generating HTML Report
+-----------------------
+
+To Generate test results in html format, we need to install a plugin pytest-html
+
+While running the pytest from terminal, include the following in command line arguments.
+
+pytest --html="reports.html"
+
+Parametrizing test methods
+--------------------------
+Every test method can be parameterised using parameterized fixture.
+
+Headers are passed as comma separated values and actual data is passed as list of tuples.
+
+@pytest.mark.usefixtures("init")
+@pytest.mark.parametrize('username, password',[('u1', 'p1'), ('u2', 'p2')], scope="class")
+class TestLogin:
+    def test_admin(self, username, password):
+        print('Entering ', username)
+        print('Entering ', password)
+
+    def test_user(self, username, password):
+        print('Entering ', username)
+        print('Entering ', password)
+
+output:
+-------
+
+test_utility.py::TestLibrary::test_admin[u1-p1] Launching Browser and Navigating to a URL
+Entering  u1
+Entering  p1
+PASSEDClosing Browser
+
+test_utility.py::TestLibrary::test_user[u1-p1] Launching Browser and Navigating to a URL
+Entering  u1
+Entering  p1
+PASSEDClosing Browser
+
+test_utility.py::TestLibrary::test_admin[u2-p2] Launching Browser and Navigating to a URL
+Entering  u2
+Entering  p2
+PASSEDClosing Browser
+
+test_utility.py::TestLibrary::test_user[u2-p2] Launching Browser and Navigating to a URL
+Entering  u2
+Entering  p2
+PASSEDClosing Browser
+
+Request object
+---------------
+
+Fixture functions can accept the request object.
+
+request object holds the information of the test method/class/module calling the fixture.
+
+@pytest.fixture()
+def init(request):
+    driver = webdriver.Chrome('../test_library/chromedriver')
+    request.cls.driver = driver
+    driver.get("http://www.google.com")
+    yield
+    driver.quit()

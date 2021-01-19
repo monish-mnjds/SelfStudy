@@ -79,7 +79,8 @@ Absolute xpath
 --------------
 Specifying the complete path of the element is called absolute xpath. 
 
-Since Absolute xpath is very lengthy and it is not practically possible to write relative xpath for bigger web applications with complex HTML hierarchy.
+Since Absolute xpath is very lengthy and it is not practically possible to write absolute
+xpath for bigger web applications with complex HTML hierarchy.
 
 To overcome the above problem, we use 
 Relative xpath.
@@ -339,8 +340,9 @@ class TestUtility:
     def test_odd(self, init):
         assert is_even(9) == False
 
-OUTPUT:
--------
+Passing fixture to all the test method's with using pytest.mark.usefixtures().
+--------------------------------------------------------------------------------
+@pytest.mark.usefixtures("init")
 class TestUtility:
     def test_even(self):
         assert is_even(10) == True
@@ -348,8 +350,9 @@ class TestUtility:
     def test_odd(self):
         assert is_even(9) == False
 
-Passing fixture to all the test method's with using pytest.mark.usefixtures().
---------------------------------------------------------------------------------
+--------------------------------------------------------------
+When keyword argument "autouse" is set to boolean True, the fixture is automatically
+applied to all the test methods and Test Classes
 
 @pytest.fixture(autouse=True)
 def init():

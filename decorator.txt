@@ -3,7 +3,7 @@ Decorators:
 -----------
 
 
-***** Decorators is a function, which takes some existing function as an argument, adds extra functionality and returns some existing function, without modifying the code. *****
+-> Decorators is a function, which takes some existing function as an argument, adds extra functionality and returns some existing function, without modifying the code. 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------

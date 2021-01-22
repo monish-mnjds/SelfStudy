@@ -393,3 +393,40 @@ using that element.
 and 10 different scripts.
 
 --------------------------------------------------------------------------------------------------------
+
+pytest
+-------
+it is a unittesting framework which allows us to write simple and scalable test codes using python..
+
+unittesting is isolating a section of the code and testing its correctness.
+
+it is usually performed by developers...
+
+
+use of pytest:
+--------------
+
+we can generate the reports.....
+
+we can execute all the tests classes.....
+
+re-execute the failed test classes after debugging....
+
+we can use it for unit, functional, integration and end to end testing...
+
+advantages:
+------------
+
+can run tests in parallel
+
+can run a specific test 
+
+automatically detect tests
+
+skip tests.
+
+dependency test, ordering test and grouping test
+
+provides baseline for test functions, classes, modules and sessions.
+
+generate the reports....

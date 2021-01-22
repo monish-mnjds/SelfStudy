@@ -430,3 +430,29 @@ dependency test, ordering test and grouping test
 provides baseline for test functions, classes, modules and sessions.
 
 generate the reports....
+
+-----------------------------------------------
+
+verbose                    pytest -v
+--------
+it is for producing the logging output...
+
+pytest allows the user to control the verbose(logging) information.
+
+to stop at the first failed test case  --------->  pytest -x
+
+to stop after 'n' times -------------> pytest --maxfail = 2
+
+to run the failed tests only ---------> pytest --last-failed
+
+to run the failed first and successful at last --------> pytest --failed-first
+
+to run the new test first then rest of the test ---------> pytest --new-first
+
+generating html reports
+------------------------
+
+install pytest-html plugins
+
+pytest --html = path
+

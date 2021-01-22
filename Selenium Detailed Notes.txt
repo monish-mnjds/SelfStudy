@@ -319,3 +319,56 @@ option = webdriver.ChromeOptions()
 option.add_argument("--disable-notifications")
 
 driver = webdriver.Chrome('c:/selenium_driver/chromedriver.exe', chrome_options = option)
+
+--------------------------------------------------------------------------------------------------
+
+screenshots
+-----------
+we take screenshots for mainly to see the flow of the test steps...
+
+it will be helpful when test fails, to find what went wrong in the scripts....
+
+screenshots can be saved only in .png format.
+
+save_screenshot('filename')
+get_screenshot_as_file('filename')
+these two methods take and save the screenshots in .png formats
+
+get_screenshot_as_png()
+this returns a binary data and create an image in memory..
+it can be useful if we want to manipulate before saving it....
+
+to take screenshot of one single element, selenium has no direct method....
+
+after saving we need to open it and then crop is the only way.......
+
+-------------------------------------------------------------------
+
+here we are using PIL module and importing Image class....
+
+from PIL import Image
+
+location = element.location
+size = element.size
+
+driver.save_screenshot("image.png")
+
+x = location['x']
+y = location['y']
+width = location['x'] + size['width']
+height = location['y'] + size['height']
+
+im = Image.open('image.png')
+im = im.crop((int(x), int(y), int(width), int(height)))
+im.save('cropped_image.png')
+
+------------------------------------------------------------------------
+
+how to take screenshot of alert popups ?
+----------------------------------------
+
+import pyautogui
+
+pyautogui.screenshot().save('screenshot.png')
+
+------------------------------------------------------------------------

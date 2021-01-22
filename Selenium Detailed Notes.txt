@@ -189,3 +189,133 @@ rect works only for mozilla and returns both the size and location in a dictiona
 value_of_css_property('color')   #returns the css property value  like rgba(0, 0, 238, 1)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+find element     vs       find elements
+
+1) return type is web element                               1) return type is list of web elements
+
+2) if the specified locator is matching with
+multiple elements, it returns first matching element        2) it returns all the matching elements.
+
+3)  if not matching with any element it will
+throw NoSuchElementException.                               3) it will not throw any error instead it returns the empty list.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Keys
+-----
+
+keys is a class to perform keyboard actions
+
+the keys will be used an argument for send_keys method.
+
+------------------------------------------------------------------------
+
+Select()
+--------
+
+select.select_by_visible_text()
+select.select_by_value()
+select.select_by_index()
+select.deselect_by_visible_text()
+select.deselect_by_value()
+select.deselect_by_index()
+select.deselect_all()
+select.all_selected_options
+select.first_selected_option
+select.is_multiple
+select.options
+
+we can use the select class to perform the operation on the drop downs, if it is only developed 
+using the 'select' tag.
+
+the dropdown built without using select class are called customized drop downs.
+
+we can handle them using web element command only.........find element and find_elements......
+
+----------------------------------------------------------------------------------------------------
+
+Action Chains
+-------------
+
+Action Chains are a way to automate low level interactions such as mouse movements, mouse button actions,
+key press and context menu....
+
+we need to create an object for actionchains, which takes one argument called webdriver.
+
+#actionchains(driver) to pass the control from driver to actionchains.
+
+perform() to generate the actions on the browser.
+
+move_to_element().perform()
+move_to_element().click().perform()    #composite actions is performing multiple actions at the same time.
+pause(seconds)
+context_click().perform()              #right click on the element
+
+we cannot inspect the context menu so we need keyboard module
+
+we need to install it using pip and import the keyboard 
+
+keyboard.press("t")  #open the link in new tab
+keyboard.press("w")  #open the link in new window
+
+send_keys(Keys.CONTROL + Keys.ENTER).perform()      # to send sequence of keystrokes
+
+click_and_hold(element).release(element).perform()
+
+double_click(element).perform()
+
+drag_and_drop(sourceElement, targetElement).perform()
+
+------------------------------------------------------------------------------------------------------------------
+
+HTML pop ups 
+------------
+
+popups built using html is html popups...
+
+we can inspect it.
+
+we should not use switch_to , it is part of the web page , so we need to use only find_element only....
+
+child-browser popup:
+---------------------
+
+we can inspect it and move it....
+
+driver.switch_to.window("window_name")
+
+driver.current_window_handle    #returns current window name in a string
+
+driver.window_handles           #returns list of window handles
+
+alert-popups:
+--------------
+we cannot inspect but we can move it....
+
+from window we need to pass the control to alert
+
+alert.accept()
+alert.dismiss()
+alert.send_keys()
+alert.text
+
+switch_to.alert     #is used to switch control from window to alert popup
+
+notification popups
+----------------------
+
+we cannot inspect it and we cannot move it.
+
+we can handle these popups using profile in firefox and option in chrome.....
+
+profile = webdriver.FirefoxProfile()
+profile.set_preference("dom.webnotifications.enabled", False)
+
+driver = webdriver.Firefox(profile)
+
+
+option = webdriver.ChromeOptions()
+option.add_argument("--disable-notifications")
+
+driver = webdriver.Chrome('c:/selenium_driver/chromedriver.exe', chrome_options = option)

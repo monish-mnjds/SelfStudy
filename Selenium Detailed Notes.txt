@@ -344,7 +344,7 @@ after saving we need to open it and then crop is the only way.......
 
 -------------------------------------------------------------------
 
-here we are using PIL module and importing Image class....
+here we are using PIL module and importing Image class.... (pillow module)
 
 from PIL import Image
 
@@ -628,3 +628,37 @@ which make them easier to diagnose and fix.
 assert statements serve as test code integrated directly into your implementation.
 
 ----------------------------------------------------------------------------------------------
+
+Framework
+----------
+
+It is a standard set of rules, guidelines and best practices followed to efficiently write scripts for automation....
+
+- Framework is a way to organize your complex code logics in more meaningful way to make our life easier.
+- Frameworks help to structure our code and make maintenance easy.
+
+Utilizing a framework for automated testing will increase a team’s test speed and efficiency, improve test accuracy.
+
+DATA-DRIVEN FRAMEWORK 
+---------------------
+
+Using a data-driven framework separates the test data from script logic, meaning testers can store data externally. 
+Very frequently, testers find themselves in a situation where they need to test the same feature or function of an 
+application multiple times with different sets of data.
+
+HYBRID FRAMEWORK
+----------------
+
+The Hybrid framework is built with a number of reusable modules / function libraries that are developed 
+with the following features in mind:
+
+Maintainability – Hybrid framework significantly reduces maintenance effort.
+Re-usability – It allows to reuse test cases and library functions.
+Manageability - effective test design, execution, and traceability.
+Accessibility – easy to design, develop, modify and debug test cases while executing.
+Availability – Allows to schedule automation execution.
+Reliability – due to advanced error handling and scenario recovery.
+Flexibility – framework independent of system or environment under test.
+Measurability – customizable reporting of test results ensures the quality output.
+
+-------------------------------------------------------------------------------------------------------------------------

@@ -120,3 +120,42 @@ we can specify implicitly_wait multiple time but it is not recommended and not n
 
 implicitly_wait is only for find_element and find_elements......
 
+-----------------------------------------------------------------------------------------------------------------
+
+explicit wait
+-------------
+
+unlike implicit wait, explicit waits are applied for a particular instance only....not every instance
+
+WebDriverWait and Expected Conditions are the classes to enforce the explicit wait.
+
+
+WebDriverWait class takes two arguments....         #WebDriverWait(driver, 30)
+
+first argument is the object of the WebDriver.    #driver = webdriver.Chrome()
+
+second argument is the timeout...
+
+
+until method takes one argument called condition methods.
+
+to pass the condition we use the expected condition class.
+
+when the condition is true it goes for the next line
+
+when the condition is false, it will throw timeout exception, 
+if the time is not over, for every 500 milliseconds it searches for the web element...
+once the time gets over it raises TimeOut Exception........
+
+
+implicit wait      vs       explicit wait
+-----------------------------------------
+
+1)  waiting condition is built-in                                   1) we should mention the waiting conditon 
+
+2)  we can handle synchronization of find element
+and find elements                                                   2)  can handle any method but one at a time
+
+3) if time is over we get 
+NoSuchElementException                                              3) if time is over we get TimeOutException
+

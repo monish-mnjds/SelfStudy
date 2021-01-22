@@ -1,0 +1,78 @@
+Xpath
+-----
+
+xpath is also known as xml path, it is for finding the element in the webpage
+
+xpath is the path of the web element in the dom/html.
+
+in order to handle the dynamic elements we use xpath.
+
+in order to traverse in the reverse order we use xpath.
+
+indexing is allowed and it starts from 1.
+
+absolute xpath is lengthy so we go for relative xpath.
+
+we can use more than one attribute value in xpath
+
+eg: //input[@name = 'username'][@class = 'textField']
+
+we can use 'and' operation
+
+if both the attributes are present it will find the web element 
+otherwise it will raises NoSuchElementException.
+
+eg: //input[@name='username' and @class='textField']
+
+in the place 'and' we can even use 'or' operator and also 'not' operator.
+
+
+xpath by text function:
+
+we need to give leading and trailing spaces in the text(), if it is in visible text.
+
+//tagname[text()='visible text']
+
+
+xpath by normalize-space:
+
+it is used to remove leading spaces and trailing spaces from the string.
+
+//label[normalize-space(text())='keep me logged in']
+
+//input[normalize-space(@name)='username']
+
+
+xpath by contains:
+
+//htmltag[contains(source, 'value')
+
+//label[contains(text(),'keep me logged in')]
+
+/input[contains(@id, 'username')]
+
+
+xpath by starts-with:
+
+//htmltag[starts-with(source, 'value')]
+
+//label[starts-with(text(),'keep me logged in')]
+
+/input[starts-with(@id, 'username')]
+
+
+xpath by grouping:
+
+(//xpathExpression)[index]
+
+(//div[@id='fruit']/button)[1]  # this will match all the first element
+
+(//div[@id='fruit']/button)[1]  # this will match only the first element
+
+
+xpath last():
+
+(//xpathExpression)[last()]
+
+#this gives the last element
+

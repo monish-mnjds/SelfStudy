@@ -372,3 +372,24 @@ import pyautogui
 pyautogui.screenshot().save('screenshot.png')
 
 ------------------------------------------------------------------------
+
+what is POM?
+
+page object model is an object design pattern in python...
+
+use of pom?
+
+using POM we can develop and test web pages.
+it is used to handle the staleElementReferenceException.
+code reusability, readability, maintainability.....
+
+why POM?
+
+   A better approach to script maintenance, it is used to create a separate class file 
+which would find elements, fill them or verify them.  This class can be reused in all the scripts 
+using that element.  
+
+  In future, if there is a change in the web element, we need to make the change in just 1 class file 
+and 10 different scripts.
+
+--------------------------------------------------------------------------------------------------------

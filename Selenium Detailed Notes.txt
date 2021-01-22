@@ -456,3 +456,58 @@ install pytest-html plugins
 
 pytest --html = path
 
+-----------------------------------------
+
+Markers
+-------
+
+marker are used to mark the test method and to run the markered test cases only....
+
+there are 2 types of markers..
+1) built - in markers      2) custom markers
+
+markers which are provided by pytest are called built-in markers.
+
+@pytest.mark.usefixtures('name')
+@pytest.mark.parameterize(arg_names, arg_values)
+@pytest.mark.skip(reason = '')
+@pytest.mark.skipif(condition, reason = '')           #if condition is true, it skips the test....
+                                                      #if false, runs the test...
+                                                      
+to skip the methods of a class
+decorate it above the class.....
+
+to skip every test cases decorate it below the last import statement...
+
+@pytest.mark.parameterize(arg_names, arg_values)
+----------------------------------------------------
+
+for only one arg name ------> @parameterize('arg1, [1,2,3])
+
+for multiple arg name ------> @parameterize('arg1, arg2',[(1, 2), (3, 4), (5, 6)]
+
+custom markers
+--------------
+
+pytest -m 'marker_name'
+
+pytest -m 'smoke and regression'
+
+pytest -m 'smoke or regression'
+
+pytest -v -m 'not smoke'
+
+we always need to register the custom markers before decorating them....
+
+to register we need to click on project -> new -> file -> pytest.ini 
+
+[pytest]
+markers =
+   smoke : marks tests as smoke
+   regression : marks tests as regression
+   
+ 
+to make every one to use the same markers we need to 
+give              ---> addopts = --strict
+
+----------------------------------------------------------------------------

@@ -159,3 +159,33 @@ and find elements                                                   2)  can hand
 3) if time is over we get 
 NoSuchElementException                                              3) if time is over we get TimeOutException
 
+
+web element commands
+--------------------
+send_keys()
+click()
+clear()
+find_element
+find_elements
+is_displayed()
+is_enabled()
+is_selected()    
+get_attribute
+get_property
+tag_name            #returns the tag name
+submit()
+text
+location            #returns x and y coordinates of a web element.....{'x':34,'y':35}            # get('x') gives the x coordinates value.....
+size                #returns height and width of a web element........{'height':17, 'width':35}  # get{'height') gives the height of the web element.....
+rect
+value_of_css_property
+
+clear() is used to clear the text present in the text boxes.
+
+submit() is used to click on the button which is present in <form> tags...
+
+rect works only for mozilla and returns both the size and location in a dictionary format....#{'x':12, 'y':23, 'height':10, 'width':21}
+
+value_of_css_property('color')   #returns the css property value  like rgba(0, 0, 238, 1)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------

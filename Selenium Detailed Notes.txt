@@ -511,3 +511,120 @@ to make every one to use the same markers we need to
 give              ---> addopts = --strict
 
 ----------------------------------------------------------------------------
+
+fixtures
+---------
+
+The purpose of test fixtures is to provide a fixed baseline upon which 
+tests can reliably and repeatedly execute.
+
+Why do you want fixtures?
+-------------------------
+If your tests need to work on data, you typically need to set them up. 
+This is often a process that has to be repeated and independent for each test. 
+This often leads to duplicate code.
+
+@pytest.fixture(scope='function', params=None, autouse=False)
+
+default scope is function....
+
+scope – the scope for which this fixture is shared, one of “function” (default),
+“class”, “module”, “session”.
+
+params – an optional list of parameters which will cause multiple invocations of the 
+fixture function and all of the tests using it.
+
+autouse – if True, the fixture function is activated for all tests that can see it. 
+If False (the default) then an explicit reference is needed to activate the fixture.
+
+Fixture can be used in 3 different ways, 
+
+1. By passing fixture directly to test functions. 
+2. By calling a fixture using the use_fixture marker. 
+3. By using the “autouse”.
+
+using add finaliser
+-------------------
+import pytest 
+
+@pytest.fixture(autouse = True)
+def setup(request):
+     print('running before the test')
+     def teardown():
+         print('running after the test')
+     request.addfinaliser(teardown)
+     
+finalizer will always be called regardless if the fixture setup code raises an exception.
+
+using yield
+-----------
+@pytest.fixture(autouse = True)
+def setup():
+     print('running before the test')
+     yield 
+     print('running after the test')
+     
+conftest.py
+------------
+
+You can add fixtures to a predefined file called conftest.py. 
+Fixtures in this file will be automatically discovered upon running pytest, no import needed.
+
+Note: All the common fixtures have to be developed in the conftest.py file
+-----
+
+parameterizing fixtures:
+------------------------
+
+The fixture function gets access to each parameter through the special request object:
+   
+import pytest
+
+@pytest.fixture(scope = 'function', params = ["Chrome", "Firefox"], autouse = True)
+def function_setup(request):
+    print("\n launching "+request.param +" browser")
+    yield
+    print("\n launching "+request.param +" browser")
+    
+The main change is the declaration of params with @pytest.fixture, a list of values for each of which the 
+fixture function will execute and can access a value via “request.param”. No test function code needs to change.
+
+every test method will run in chrome first and then firefox, chrome first, then firefox...and so on....
+
+------------------------------------------------------------------------------------------------------------------
+
+What is Assertion?
+------------------
+
+Assertions are statements that assert or state a fact confidently in your program.
+
+For example, while writing a division function, you're confident the divisor shouldn't be zero, 
+you assert divisor is not equal to zero.
+
+Assertions are simply Boolean expressions that checks if the conditions return true or not. 
+If it is true, the program does nothing and move to the next line of code. 
+However, if it's false, the program stops and throws an error.
+
+It is also a debugging tool as it brings the program on halt as soon as any error is occurred 
+and shows on which point of the program error has occurred.
+
+Syntax for using Assert in Python: 
+----------------------------------
+
+assert <condition> 
+assert <condition>, <error message>
+
+Why Assertion?
+--------------
+
+Programming with assertion is a great idea ...
+
+because they provide run-time checks of expected results.
+
+When you are debugging code filled with assert statements, 
+failures appear earlier and closer to the locations of the errors,
+which make them easier to diagnose and fix.
+
+assert statements serve as test code integrated directly into your implementation.
+
+----------------------------------------------------------------------------------------------

@@ -72,7 +72,7 @@ xpath by grouping:
 
 (//xpathExpression)[index]
 
-(//div[@id='fruit']/button)[1]  # this will match all the first element
+//div[@id='fruit']/button[1]  # this will match all the first element
 
 (//div[@id='fruit']/button)[1]  # this will match only the first element
 

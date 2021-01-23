@@ -69,3 +69,69 @@ for key, value in d.items():
                 d[key][k] = v + 10
 	
 --------------------------------------------------------------------------------------
+l = ['add','subtracting']
+
+_list = []
+for item in l:
+    if len(item) == 3:
+        _list.append(item + 'ing')
+
+    if len(item) > 3 and item.endswith('ing'):
+        _list.append(item + 'ly')
+
+print(_list)
+
+#['adding', 'subtractingly']
+-------------------------------------------------------------------------
+
+l = ['apple.com', 'google.in', 'nic.in', 'testyantra.org']
+
+_list = []
+
+for item in l:
+    company, ext = item.split('.')
+
+    if ext == 'in':
+        _list.append(item)
+
+    elif ext != 'in':
+        temp = company[::-1]
+        dot = '.'
+        _list.append(temp + dot + ext)
+
+print(_list)
+
+#['elppa.com', 'google.in', 'nic.in', 'artnaytset.org']
+---------------------------------------------------------------------------------
+
+string = 'python coding'
+
+d = {}
+
+for item in string:
+    if item not in d:
+        d[item] = 1
+
+    elif item in d:
+        d[item] += 1
+
+print(d)		#{'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 2, 'n': 2, ' ': 1, 'c': 1, 'd': 1, 'i': 1, 'g': 1}
+
+----------------------------------------------------------------------------------------------------------------------
+
+#prime using lambda
+
+def prime(num):
+    
+    r = range(2, num)
+    m = map(lambda item: num % item == 0 , r)    
+    return m
+
+res = prime(13)
+
+if all(res) == False:
+    print('prime')
+else:
+    print('Not a prime')
+
+---------------------------------------------------------------------------------

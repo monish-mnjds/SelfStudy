@@ -703,6 +703,11 @@ TimeoutException
 Usually thrown by until method of WebDriverWait class.
 Possible cause would be when the command does not complete with in specified timeout period.
 
+NoSuchFrameException
+--------------------
+
+Thrown when frame target to be switched doesn't exist.
+
 NoAlertPresentException
 -----------------------
 
@@ -726,3 +731,47 @@ Element may have been inside an iframe or another context which was refreshed.
 
 ---------------------------------------------------------------------------------------------------------
 
+iframes
+-------
+
+iFrame HTML tag will be used to insert one html page in another html page.
+
+iFrame HTML element is used to insert content from another source, such as an advertisement, into a Web page.
+
+if an element is inside the frame then web driver cannot find the element.
+
+In order to work with frame web elements, we should pass driver control to the frame before performing an action.
+
+There are three ways we can pass driver control to frame.
+
+Int
+String (ID/Name)
+Web Element (Address)
+
+driver.switch_to.frame(1)
+driver.switch_to.frame('frame_name')
+driver.switch_to.frame(driver.find_element_by_xpath("//iframe[@name='frame1']"))
+
+driver.switch_to.default_content()
+driver.switch_to.parent_frame()
+
+Default content method is used to switch to main page directly.
+Parent frame method is used to switch to its immediate parent page.
+
+index of Frame starts from 0
+
+Whenever switchTo ().Frame () method fails to locate the frame in a HTML page. We get a NoSuchFrameException.
+Whenever the frame page get refresh, control will automatically go back to the main page.
+
+------------------------------------------------------------------------------------------------------------------
+
+allure report
+-------------
+
+pytest --alluredir = 'path'
+
+pytest --junitxml = 'path'       ---> xml report
+
+pytest --html = 'path'           ---> html report
+
+-------------------------------------------------------------------------------------------------------------------

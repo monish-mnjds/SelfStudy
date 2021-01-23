@@ -67,7 +67,10 @@ for key, value in d.items():
         for k, v in value.items():
             if isinstance(v, (int, float)):
                 d[key][k] = v + 10
-	
+
+print(d)
+#{'a': 'apple', 'b': 20.3, 'c': {'x': 35.3, 'y': 40}, 'd': 25}
+
 --------------------------------------------------------------------------------------
 l = ['add','subtracting']
 

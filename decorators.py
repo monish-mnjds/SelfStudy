@@ -98,28 +98,3 @@ def add(a,b):
 add(10, 20)
 
 --------------------------------------------------------------------------
-  
-# Class Decorator
-class Record:
-    def __init__(self, func):
-        self.func = func
-    def __call__(self, *args, **kwargs):
-      return self.func(*args, **kwargs)
-
-def add(a,b):
-    return a+b
-def sub(a,b):
-    return a-b
-def mul(a,b):
-    return a*b
-
-a = Record(add(10,20))
-
-s = Record(sub(10,20))
-
-m = Record(mul(10,20))
-
-#a.func     #30
-#s.func     #-10
-#m.func     #200
--------------------------------------

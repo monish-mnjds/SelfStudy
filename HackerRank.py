@@ -63,3 +63,32 @@ print('Capitalized Form: ', solve(s))
 #input  ---> peshwa bajirao
 #output ---> Peshwa Bajirao
 -------------------------------------------------------------------------------------------------------------
+5) '''You are given a string s and width w.
+Your task is to wrap the string into a paragraph of width .
+Print the text wrapped paragraph.'''
+
+'''input:
+ABCDEFGHIJKLIMNOQRSTUVWXYZ
+4'''
+
+'''
+output:
+   ABCD
+   EFGH
+   IJKL
+   IMNO
+   QRST
+   UVWX
+   YZ'''
+
+import textwrap
+
+def wrap(string, max_width):
+    results = textwrap.fill(string, max_width)
+    return results
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+--------------------------------------------------------------------------------

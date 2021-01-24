@@ -1,4 +1,3 @@
-
 def new(dict):
   
   for x, y in dict.items():
@@ -72,3 +71,38 @@ for x in r:
 print(min(r))
 print(max(r))
 
+-----------------------------------------------------------------------------------
+
+def g_lines():
+    with open('E:/dataset/sample.log.txt') as f:
+        for line in f:
+            if 'WARNING' in line:
+                yield line
+
+g = g_lines()
+
+for i in g:
+    print(i)
+                    
+                (or)  
+        
+# Generator Expression for the above problem
+lines = (line for line in open("Data/sample.log") if "WARNING" in line)
+
+for line in lines:
+    print(line)
+-------------------------------------------------------------
+
+# Generator which yield words in a sentence
+sentence = "Hello world welcome to Python"
+def g_words(sentence):
+    words = sentence.split()
+    for word in words:
+        yield word
+        
+g = g_words(sentence)
+
+for i in g:
+    print(i)
+  
+--------------------------------------------------------------

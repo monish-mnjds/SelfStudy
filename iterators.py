@@ -35,7 +35,7 @@ class PowTwo:
     """Class to implement an iterator
     of powers of two"""
 
-    def __init__(self, max=0):
+    def __init__(self, max):
         self.max = max
 
     def __iter__(self):
@@ -92,3 +92,29 @@ next(a)
 next(a)        #this will keep on returning odd numbers.....
 
 ---------------------------------------------------------------------
+#Custom Iterator
+class MyItr:
+    """Iterator for looping over a sequence."""
+    def __init__(self, iterable):
+        self.data = iter(iterable)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        return next(self.data)
+
+
+num = MyItr([1, 2, 3, 4, 5])
+_list = MyItr(['apple', 'google', 'yahoo', 'facebook'])
+string = MyItr('spam')
+
+for n in num:
+    print(n)
+
+for l in _list:
+    print(l)
+
+for s in string:
+    print(s)
+-----------------------------------------------------------------------------

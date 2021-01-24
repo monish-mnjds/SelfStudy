@@ -43,4 +43,23 @@ if __name__ == '__main__':
     
 #input  ---> HackerRank.com
 #output ---> hACKERrANK.COM
----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+4) '''ensure that the first and last names of people begin with a capital letter in their passports.
+For example, alison heck should be capitalised correctly as Alison Heck.'''
+
+def solve(s):
+    names = s.split(' ')
+    l = []
+    for name in names:
+        c = name.capitalize()
+        l.append(c)
+    j = ' '.join(l)
+    return j
+
+s = input('First and Last Name: ')
+
+print('Capitalized Form: ', solve(s))
+
+#input  ---> peshwa bajirao
+#output ---> Peshwa Bajirao
+-------------------------------------------------------------------------------------------------------------

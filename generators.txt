@@ -1,3 +1,5 @@
+lines after yield keyword will be executed, but after return keyword, the lines will not be executed......
+
 What are Generators ?
 ----------------------
 

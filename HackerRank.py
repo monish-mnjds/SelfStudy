@@ -30,3 +30,17 @@ for i in range(1, n + 1):
 
 print(es)
 ---------------------------------------------------------------------------------------
+3) '''Given a string and swap its cases. 
+In other words, convert all lowercase letters to uppercase letters and vice versa.'''
+def swap_case(s):
+    string = s.swapcase()
+    return string
+
+if __name__ == '__main__':
+    s = input("S: ")
+    result = swap_case(s)
+    print(result)
+    
+#input  ---> HackerRank.com
+#output ---> hACKERrANK.COM
+---------------------------------------------------------------------------------------

@@ -98,3 +98,38 @@ def add(a,b):
 add(10, 20)
 
 --------------------------------------------------------------------------
+# Delay Decorator
+
+import time
+
+def _delay(_time_delay):
+    def delay(func):
+        def wrapper(*args, **kwargs):
+            time.sleep(_time_delay)
+            return func(*args, **kwargs)
+        return wrapper
+    return delay
+
+
+@_delay(5)
+def add(a, b):
+    return a + b
+---------------------------------------------------------------
+import time
+
+
+# Time Decorator
+def _time(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f'Exe Time for {func.__name__} : {end-start}')
+        return result
+    return wrapper
+
+@_time
+def add(a, b):
+    time.sleep(2)
+    return a + b
+-----------------------------------------------------------------

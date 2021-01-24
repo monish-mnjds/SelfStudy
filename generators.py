@@ -87,7 +87,7 @@ for i in g:
                 (or)  
         
 # Generator Expression for the above problem
-lines = (line for line in open("Data/sample.log") if "WARNING" in line)
+lines = (line for line in open('E:/dataset/sample.log.txt') if "WARNING" in line)
 
 for line in lines:
     print(line)

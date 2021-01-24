@@ -50,7 +50,7 @@ it is used to remove leading spaces and trailing spaces from the string.
 xpath by contains:
 ------------------
 
-//htmltag[contains(source, 'value')
+//htmltag[contains(source, 'value')]
 
 //label[contains(text(),'keep me logged in')]
 

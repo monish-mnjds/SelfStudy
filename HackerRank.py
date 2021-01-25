@@ -187,3 +187,41 @@ elif c == 6:
     print('SUNDAY')
     
 ---------------------------------------------------------------------------------------------------
+9) '''Integers a, b, c and d are given on four separate lines, respectively.
+Print the result of (a power b + c power d) on one line.'''
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+
+print(A ** B + C ** D)
+--------------------------------------------------------------------------------------------
+10) '''The first line contains the integer, n.
+The next n lines each contain a word.
+Output 2 lines.
+On the first line, output the number of distinct words from the input.
+On the second line, output the number of occurrences for each distinct word according to their appearance in the input.'''
+
+from collections import Counter
+
+n = int(input())
+
+l = []
+for _ in range(n):
+    l.append(input())
+
+x = Counter(l)
+print(len(x))
+print(*x.values())      #unpacking using the '*' operator...
+
+''' i/p:
+4
+bcdef
+abcdefg
+bcde
+bcdef'''
+
+''' o/p:
+3
+2 1 1'''
+----------------------------------------------------------------------------------------

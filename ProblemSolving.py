@@ -21,7 +21,7 @@ if __name__ == '__main__':
 --------------------------------------------------------------------------------------------------------------
 #runner-up
 n = int(input())
-arr = map(int, input().split())
+arr = list(map(int, input().split()))
 
 a = max(arr)
 

@@ -163,3 +163,27 @@ France
 output:
 5   '''
 --------------------------------------------------------------------------------------------------
+8) '''using calendar module find the day of the date specified in mm dd yyyy format.....'''
+#08 05 2015 #mm dd yyyy
+
+import calendar
+
+m, d, y = map(int, input().split())
+c = calendar.weekday(y, m, d)
+
+if c == 0:
+    print('MONDAY')
+elif c == 1:
+    print('TUESDAY')
+elif c == 2:
+    print('WEDNESDAY')
+elif c == 3:
+    print('THURSDAY')
+elif c == 4:
+    print('FRIDAY')
+elif c == 5:
+    print('SATURDAY')
+elif c == 6:
+    print('SUNDAY')
+    
+---------------------------------------------------------------------------------------------------

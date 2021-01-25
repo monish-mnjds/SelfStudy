@@ -110,3 +110,27 @@ if n % 2 == 0:
 if n % 2 == 1:
     print('Weird')
 ---------------------------------------------------------------------------------
+6) '''You are given two values a and b.
+Perform integer division and print a/b.
+Print the value of a/b.
+In the case of ZeroDivisionError or ValueError, print the error code.'''
+
+#The first line contains T, the number of test cases.
+#The next T lines each contain the space separated values of a and b.
+
+n = int(input())
+
+for i in range(n):
+    
+    try:
+        a, b = map(int, input().split())
+        print(a // b)
+    
+    except ZeroDivisionError as e:
+        print('Error Code:', e)
+    
+    except ValueError as e:
+        print('Error Code:', e)
+
+# Note: a, b = input().split()    #i/p: 10 20     #a = '10'    #b = '20'
+------------------------------------------------------------------------------------

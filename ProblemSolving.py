@@ -11,6 +11,7 @@ if __name__ == '__main__':
     
 -----------------------------------
 #list comprehensions
+
 if __name__ == '__main__':
     x = int(input())
     y = int(input())
@@ -20,6 +21,7 @@ if __name__ == '__main__':
     
 --------------------------------------------------------------------------------------------------------------
 #runner-up
+
 n = int(input())
 arr = list(map(int, input().split()))
 
@@ -50,10 +52,24 @@ if __name__ == '__main__':
     print(count)
 -------------------------------------------------------
 #string validators
+
 s = input()
 print(any([ i.isalnum() for i in s]))
 print(any([ i.isalpha() for i in s]))
 print(any([ i.isdigit() for i in s]))
 print(any([ i.islower() for i in s]))
 print(any([ i.isupper() for i in s]))
+-------------------------------------------------------
+#camelcase
+
+def camelcase(s):
+    count = 1
+    for char in s:
+        if char.isupper():
+            count += 1
+    return count
+
+s = input()
+
+print(camelcase(s))
 -------------------------------------------------------

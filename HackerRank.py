@@ -133,4 +133,33 @@ for i in range(n):
         print('Error Code:', e)
 
 # Note: a, b = input().split()    #i/p: 10 20     #a = '10'    #b = '20'
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+7) '''Rupal has a huge collection of country stamps. 
+She decided to count the total number of distinct country stamps in her collection. 
+She asked for your help. You pick the stampsone by one from a stack of N country stamps.
+Find the total number of distinct country stamps.
+The first line contains an integer N, the total number of country stamps.
+The next N lines contains the name of the country where the stamp is from.
+Output the total number of distinct country stamps.....''''
+
+n = int(input())            
+s = set()
+for i in range(n):
+    
+    s.add(input())
+
+print(len(s))
+
+'''input:
+7
+UK
+China
+USA
+France
+New Zealand
+UK
+France 
+
+output:
+5   '''
+--------------------------------------------------------------------------------------------------

@@ -1,0 +1,771 @@
+1. Write a program to find the length of the string without using inbuilt function (len).
+
+def _len(iterable):
+    _count = 0
+    for item in iterable:
+        _count += 1
+    return _count
+
+>>> _len('Hello')
+5
+>>> _len([1, 2, 3, 4])
+4
+>>> 
+>>> _len({1, 2, 3})
+3
+>>> _len((1, 2, 3, 4))
+4
+>>> 
+
+2. Write a program to reverse a string without using any inbuilt functions.
+
+def reverse(any_string):
+    temp = []
+    for i in range(len(any_string)-1, -1, -1):
+        temp.append(any_string[i])
+    return ''.join(temp)
+
+>>> reverse('Hello world')
+'dlrow olleH'
+>>> 
+>>> reverse('Python')
+'nohtyP'
+>>> 
+>>> reverse('racecar')
+'racecar'
+>>> 
+
+3. Write a program to replace one string with another. e.g. "Hello World" replace "World" with "Universe".
+
+>>> s = 'Hello world'
+>>> s.replace('world', 'universe')
+'Hello universe'
+>>>
+
+4. How to convert a string to a list and vice-versa.
+
+def convert_to_string(any_list):
+    return ''.join(any_list)
+
+def convert_to_list(any_string):
+    return any_string.split()
+
+>>> convert_to_list('steve')
+['steve']
+>>> convert_to_string(['steve', 'jobs'])
+'stevejobs'
+
+5. Covert the string "Hello welcome to Python" to a comma separated string.
+
+>>> s = "Hello welcome to Python"
+>>> 
+>>> s
+'Hello welcome to Python'
+>>> 
+>>> temp = s.split()
+>>> temp
+['Hello', 'welcome', 'to', 'Python']
+>>> ','.join(temp)
+'Hello,welcome,to,Python'
+
+6. Write a program to print alternate characters in a string.
+
+>>> s = 'hello world'
+>>> print(s[::2])  # Using Slicing Syntax
+hlowrd
+>>> 
+
+7. Write a Program to print ascii values of the characters present in a string.
+
+>>> s = 'hello'
+>>> 
+>>> for c in s:
+	print(ord(c))
+104
+101
+108
+108
+111
+>>> 
+
+8. Write program to convert upper case to lower case and vice-versa without using inbuilt method.
+
+def convert(any_string):
+    l = []
+    for c in any_string:
+        temp = ord(c)   # Get the ASCII value of the character
+        if temp>= 97 and temp<=122:
+            l.append(chr(temp - 32))
+        elif temp>=65 and temp<=90:
+            l.append(chr(temp+32))
+    return ''.join(l)
+
+>>> convert('Hello WorlD')
+'hELLOwORLd'
+
+9. Write program to swap two numbers without using 3rd variable.
+
+>>> a = 10
+>>> b = 20
+>>> 
+>>> b, a = a, b
+>>> a
+20
+>>> b
+10
+>>> 
+
+10. Write program to merge two different lists.
+
+>>> a = [1, 2, 3]
+>>> 
+>>> b = [4, 5, 6]
+>>> 
+>>> c = [*a, *b]
+>>> c
+[1, 2, 3, 4, 5, 6]
+>>> 
+
+11. Write program to read a random line in a file. (ex. 50, 65, 78th line)
+
+class ReadRandomLine:
+	def __init__(self, objfile):
+		self._objfile = objfile
+	
+        def __getitem__(self, index):
+		lines = self._objfile.readlines()
+                try:
+		  return lines[index]
+                except IndexError:
+                  print('Please check the line number')
+
+11. Write a program to check if the given string is Palindrome or not without using reversed method.
+
+>>> def is_palindrome(iterable):
+	rev_iter = iterable[::-1]
+	if iterable == rev_iter:
+		return True
+	else:
+		return False
+
+	
+>>> is_palindrome('racecar')
+True
+>>> is_palindrome('malayalam')
+True
+>>> is_palindrome('hello')
+False
+>>> 
+
+12 Write a program to search for a character in a given string and return the corresponding index.
+
+>>> def search_character(string, key):
+	for index, c, in enumerate(string):
+		if c == key:
+			print(f'Character {c} is at index {index}')
+
+>>> search_character('hello world', 'w')
+Character w is at index 6
+>>> 
+>>> search_character('hello world', 'd')
+Character d is at index 10
+>>> 
+>>> 
+
+13 Write a program to get the below output
+
+sentence = "python is a programming language"
+# d = {'p':['python', 'programming'] , 'i': ['is'] , 'a': ['a'] , 'l' : ['language'] }
+from collections import defaultdict
+d = defaultdict(list)
+words = sentence.split()
+for word in words:
+   d[word[0]].append(word)
+14 Write a to replace all the characters with - if the character occurs more than once in a string
+
+my_string = 'hellohai' # O/P should be '-e--o-ai'
+
+my_string = 'hellohai'
+
+# Get all the unique characters
+ss = set(my_string)
+
+for ch in ss:
+    if my_string.count(ch) > 1:
+        my_string = my_string.replace(ch, '-')
+
+print(my_string)
+
+15 write a decorator that returns only positive values of subtraction
+
+def positive(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return abs(result)
+    return wrapper
+
+@positive
+def sub(a, b):
+    return a - b
+
+>>> sub(1, 2)
+1
+>>> sub(-1, 100)
+101
+>>> sub(-100, 1)
+101
+>>> sub(3, 1)
+2
+>>> sub(-1, -2)
+1
+>>> sub(-2, 1)
+3
+>>> 
+
+16 How to get the count of number of instances of a class that is being created.
+
+class Login:
+   login_count = 0    # Class Variable that keeps count of login counts
+   def __init__(self):
+       Login.login_count += 1
+  
+
+>>> u1 = Login()
+>>> Login.login_count
+1
+>>> u2 = Login()
+>>> Login.login_count
+2
+>>> u3 = Login()
+>>> Login.login_count
+3
+>>> 
+
+17 Write a function which takes a list of strings and integers.If the item is a string it should print 
+as it is and if the item is integer of float it should reverse it.
+
+def spam(items):
+    for item in items:
+        if isinstance(item, str):   # Check if the item is an instance of String
+            print(item)
+        else:
+            temp = str(item)    # Typecast Integer to String
+            print(temp[::-1])   # Reverse the String
+
+>>> spam(['apple', 'yahoo', '1234', 100, 123.76, '26.23'])
+apple
+yahoo
+1234
+001
+67.321
+26.23
+>>> 
+
+18 Write a class named Simple and it should have iteration capability.
+
+class Simple:
+    def __init__(self, items):
+        self._items = items
+
+    def __iter__(self):
+        return iter(self._items)
+
+>>> s = Simple([1, 2, 3, 4, 5])
+>>> 
+>>> for item in s:
+	print(item)
+1
+2
+3
+4
+5
+>>>
+
+19 Write a Custom class which can access the values of dictionaries using d['a'] and d.a
+
+class MyDict:
+    def __init__(self, d):
+        self._dict = d
+
+    def __getitem__(self, item):
+        return self._dict[item]
+
+    def __getattr__(self, name):
+        return self._dict[name]
+
+>>> d = MyDict({'a': 1, 'b': 2})
+>>> d.a
+1
+>>> d.b
+2
+>>> d['a']
+1
+>>> d['b']
+2
+>>> 
+
+20 Write a python program to get the below output
+
+sentence = "Hi How are you" 
+o/p should be "iH woH era uoy"
+
+>>> sentence = "Hi How are you"
+>>> words = sentence.split()
+>>> words
+['Hi', 'How', 'are', 'you']
+>>> reversed_words = [word[::-1] for word in words]
+>>> reversed_words
+['iH', 'woH', 'era', 'uoy']
+>>> ' '.join(reversed_words)
+'iH woH era uoy'
+>>> 
+
+21 Write a python program to get the below output
+
+sentence = "Hi How are you" 
+o/p should be "uoy era woH iH"
+
+>>> sentence = "Hi How are you"
+>>> sentence[::-1]
+'uoy era woH iH'
+>>> 
+
+22 Write a lambda function to add two numbers (a, b)
+
+>>> add = lambda a, b: a + b
+>>> add(1, 2)
+3
+>>> add(100, 300)
+400
+>>> 
+
+23 What is the output of the following
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+print([a, b])
+print((a, b))
+
+>>> print((a, b))
+([1, 2, 3], [4, 5, 6])   # Tuple of Lists
+>>> print([a, b])
+[[1, 2, 3], [4, 5, 6]]   # List of Lists
+>>> 
+
+24 How to remove duplicates from the list without using inbuilt functions
+
+>>> items = [1, 2, 3, 4, 1, 2, 3, 4, 5]
+>>> uniques = []
+>>> for item in items:
+	if item not in uniques:
+		uniques.append(item)	
+>>> print(uniques)
+[1, 2, 3, 4, 5]
+>>> 
+
+25 Find the longest word in the sentence
+
+sentence = "Hello world. Welcome to Python"
+>>> sentence = "Hello world. Welcome to Python"
+>>> words = sentence.split()
+>>> d = {word: len(word) for word in words}
+>>> max(d.items(), key= lambda item: item[-1])
+('Welcome', 7)
+>>>
+
+26 Write a custom function which returns the length of the iterable without using builtin len method
+
+>>> def _len(iterable):
+	_count = 0
+	for item in iterable:
+		_count +=1
+	return _count
+
+>>> l = [1, 2, 3, 4]
+>>> _len(l)
+4
+>>> 
+>>> t = (1, 2, 3, 4, 5)
+>>> _len(t)
+5
+>>> 
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> _len(d)
+3
+>>>
+
+27 write a program to reverse the values in the dictionary if the value is of type String
+
+>>> d = {'a': 'hello', 'b': 100, 'c': 10.1, 'd': 'world'}
+>>> rev = {  key: value[::-1] if isinstance(value, str) else value for key, value in d.items()}
+>>> rev
+{'a': 'olleh', 'b': 100, 'c': 10.1, 'd': 'dlrow'}
+
+28 write a program to get 1234
+
+t = ('1', '2', '3', '4')
+>>> t = ('1', '2', '3', '4')
+>>> ''.join(t)   # Use join function 
+'1234'
+>>> 
+
+29 How to get the elements that are in list b but not in list a
+
+a = [1, 2, 3] b = [1, 2, 3, 4]
+>>> a = [1, 2, 3]
+>>> b = [1, 2, 3, 4]
+>>> set_a = set(a)      # Convert the list to set
+>>> set_b = set(b)
+>>> set_b.difference(set_a)
+{4}
+>>> 
+
+30 A function takes variable number of positional arguments as input. How to check if the arguments that are passed are more than 5
+
+>>> def spam(*args):
+	 if len(args) > 5:
+		 print('Length of arguments passed is greater than 5')
+	 else:
+		 print('Length Argument passed is less than 5')
+
+		 
+>>> spam(1, 2, 3, 4, 5, 6, 7)
+Length of arguments passed is greater than 5
+>>> 
+>>> spam(1, 2)
+Length Argument passed is less than 5
+>>> 
+>>> spam()
+Length Argument passed is less than 5
+>>> 
+>>> spam(1, 2, 3, 4, 5)
+Length Argument passed is less than 5
+>>> 
+
+31 Count the number of occurrences of "CRITICAL", "INFO" and "ERROR" lines in a log file.
+
+# Assume Below is the contents of the log file
+
+lines = """CRITICAL:Hello world
+INFO: This is an info
+ERROR: This is an error 
+CRITICAL: This is critical
+CRITICAL:Hello world
+INFO: This is an info
+ERROR: This is an error 
+CRITICAL: This is critical
+CRITICAL:Hello world
+INFO: This is an info
+ERROR: This is an error 
+CRITICAL: This is critical
+CRITICAL:Hello world
+INFO: This is an info
+ERROR: This is an error 
+CRITICAL: This is critical"""
+
+>>> from collections import defaultdict
+>>> _errors = defaultdict(int)
+>>> for line in lines.split('\n'):    # Split the line based on newline character
+        # Split each line based on ":" to separate out error message part.
+	error_type, other = line.strip().split(':')    
+	_errors[error_type] +=1
+	
+>>> _errors
+defaultdict(<class 'int'>, {'CRITICAL': 8, 'INFO': 4, 'ERROR': 4})
+>>> _errors['INFO']
+4
+>>> _errors['ERROR']
+4
+>>> _errors['CRITICAL']
+8
+>>> 
+
+32 Write a function to reverse any iterable without using reverse function.
+
+>>> a = [1, 2, 3, 4, 5]
+>>> _reversed = []
+>>> for i in range(len(a)-1, -1,-1):
+	_reversed.append(a[I])
+
+>>> _reversed
+[5, 4, 3, 2, 1]
+>>> 
+
+33 Write a function to print the below output.
+
+func(string, flag)
+
+func("TRACXN", 0)  # Should print RCN
+func("TRACXN", 1)  # Should print TAX
+
+>>> def func(string, flag):
+	if flag:
+		return string[0::2]
+	return string[1::2]
+
+>>> func('TRACXN', 0)
+'RCN'
+>>> func('TRACXN', 1)
+'TAX'
+>>> 
+
+34 Sum all the numbers in the below string.
+
+import re
+s = "Sony12India567Pvt2ltd"
+total = 0.00
+>>> r = re.findall(r'[\d]', s)
+>>> r
+['1', '2', '5', '6', '7', '2']
+>>> for item in r:
+	total += int(item)
+>>> total
+23.0
+
+35 Write a program to sum all the numbers in below string.
+
+import re
+s = "Sony12India567Pvt2ltd" # eg.12+567+2
+
+>>> rr = re.findall(r'[\d]+', s)
+>>> rr
+['12', '567', '2']
+>>> total = 0.00
+>>> for item in rr:
+	total += int(item)
+>>> total
+581.0
+
+36 Print all the numbers in the below list
+
+a = ['abc', '123', 'hello', '23']
+>>> for item in a:
+      if item.isnumeric():
+	 print(item)
+
+123
+23
+
+37 Program to print the number of occurrences of characters in a String without using inbuilt functions.
+
+>>> s = 'helloworld'
+>>> from collections import defaultdict
+>>> d = defaultdict(int)
+>>> for c in s:
+	d[c] +=1
+>>> print(d)
+defaultdict(<class 'int'>, {'h': 1, 'e': 1, 'l': 3, 'o': 2, 'w': 1, 'r': 1, 'd': 1})
+
+38 Program to print only the repeated characters and count of the same.
+
+>>> s = 'helloworld'
+>>> from collections import defaultdict
+>>> d = defaultdict(int)
+>>> for c in s:
+	d[c] +=1
+>>> for key, value in d.items():
+      if value > 1:
+        print(key, value)
+
+39 Program to print last "N" lines of a file.
+
+from itertools import islice
+with open('sample.txt') as f:
+    lines = islice(f, 5, None)
+    for line in lines:
+        print(line, end='')
+
+from collections import deque
+def tail(n):
+    with open('sample.log') as f:
+        d = deque(f, n)             # only last 'n' lines will be loaded to the deque
+        return d
+
+last_10_lines = tail(10)     # returns last 10 lines of the file
+for line in last_10_lines:
+   print(line)
+
+40 Write a program to get alternate characters of a string in list format.
+
+>>> s = 'hello world welcome to python'
+>>> alternate_chrs = [ c for c in s[::2]]
+>>> alternate_chrs
+['h', 'l', 'o', 'w', 'r', 'd', 'w', 'l', 'o', 'e', 't', ' ', 'y', 'h', 'n']
+
+41 Write a program to get square of list of number's using lambda function .
+
+>>> a = [1, 2, 3, 4, 5]
+>>> squares = lambda number: number ** 2
+>>> b = [ squares(item) for item in a]
+>>> b
+[1, 4, 9, 16, 25]
+
+42 Write a function that accepts two strings and returns True if the two strings are anagrams of each other.
+
+def is_anagram(str1, str2):
+    if str1.upper() == str2.upper():    # Return False if both words are same
+        return False
+    s_str1 = sorted(str1.upper())   # Convert to upper case and sort
+    s_str2 = sorted(str2.upper())
+    if s_str1 == s_str2:    # Return True if both the lists are same
+        return True
+    else:
+        return False
+>>> is_anagram('ate', 'eat')
+True
+>>> is_anagram('racecar', 'racecar')
+False
+>>> is_anagram('file', 'life')
+True
+>>> is_anagram('hello', 'world')
+False
+>>> is_anagram("sinks", "skin")
+False
+>>> is_anagram("Listen", "silent")
+True
+
+43 Write a program to iterate through list and build a new list, only if the items of the list has even number of characters.
+
+>>> names = ['apple', 'yahoo', 'google', 'gmail', 'walmart', 'flipkart', 'facebook', 'amazon']
+>>> [ name for name in names if len(name) % 2 == 0]
+['google', 'flipkart', 'facebook', 'amazon']
+
+44 Write a program to iterate through list and build a new dictionary, only if the items of the list has even number of characters.
+
+>>> names
+['apple', 'yahoo', 'google', 'gmail', 'walmart', 'flipkart', 'facebook', 'amazon']
+>>> { name: len(name) for name in names if len(name) % 2 == 0}
+{'google': 6, 'flipkart': 8, 'facebook': 8, 'amazon': 6}
+
+45 Write a program which squares the numbers in a list using map object
+
+# Squares of numbers using map
+# map is used to map a function with a iterable
+a = [1, 2, 3, 4, 5]
+
+def squares(item):
+    return item ** 2
+
+# Returns a map object, which happens to be an iterator.
+m = map(squares, a)
+
+# To get the squares of numbers, feed the map object to for loop
+for item in m:
+    print(item)
+
+# Mapping lambda function to map object
+m = map(lambda item: item ** 2, a)
+
+46 Count number of lines in a file without loading the file to the memory
+
+# Counting number of lines in a file without loading the file to the memory
+with open('sample.txt') as f:
+    _count = 0
+    # Iterate over a file object and increment the _count
+    for line in f:
+        _count +=1
+
+print(f'No of Lines: {_count}')
+
+47 Printing line and line no's
+
+# Counting number of lines in a file without loading the file to the memory
+with open('sample.txt') as f:
+    for line_no, line in enumerate(f):
+        print(line_no, line)
+
+48 Write a Program to print the sum of entire list and sum of only internal list
+
+l = [[1,2,3],[4,5,6],[7,8,9]]
+# Add the contents of internal list. ([6, 15, 24])
+sum_internal = [sum(item) for item in l]
+
+# Add the contents of entire list. (45)
+sum_iternal = [sum(item) for item in l]
+sum_whole_list = sum(sum_internal)
+
+49 Write a program to reverse the list as below
+
+words = ["hi", "hello", "python"]                                
+# o/p ['nohtyp', 'olleh', 'ih']
+words = words[::-1]
+words = [word[::-1] for word in words]
+
+50 Write a program to update the tuple
+
+t1 = (1, 2, 3, 4)
+t2 = (100, 200, 300)
+# o/p (1, 2, 3, 4, 100, 200, 300)
+t = t1 + t2
+
+51 Write a program to replace value present in nested dictionary.
+
+d = {'a': 100, 'b': {'m': 'man', 'n': 'nose', 'o': 'ox', 'c': 'cat'}}
+# Replace "nose" with "net"
+for key, value in d.items():
+    if isinstance(value, dict):
+        d[key]['n'] = "net"
+print(d)
+
+52 Write a program to count the number of white spaces in a file.
+
+import re
+white_spaces = 0
+with open('data/sample.txt') as f:
+    for line in f:
+        match = re.findall(r'\s', line)
+        if match:
+            white_spaces += len(match)
+print(white_spaces)
+
+53 Grouping anagrams.
+
+>>> from collections import defaultdict
+>>> words = ['eat', 'ate', 'tea', 'hello', 'silent', 'listen']
+>>> d = defaultdict(list)
+>>> for word in words:
+	s = ''.join(sorted(word))
+	d[s].append(word)
+
+>>> print(d)
+defaultdict(<class 'list'>, {'aet': ['eat', 'ate', 'tea'], 'ehllo': ['hello'], 'eilnst': ['silent', 'listen']})
+>>> group = list(d.values())
+>>> group
+[['eat', 'ate', 'tea'], ['hello'], ['silent', 'listen']]
+>>> 
+
+54 What is the difference between defaultdict and normal dictionary.
+
+Defaultdict
+-----------
+1. When each key is encountered for the first time, it will not be there in the mapping.
+2. So an entry is automatically created with default value (an empty list in case of defaultdict of list and zero in case of defaultdict int).
+3. When keys are encountered again, the look-up proceeds normally as like a normal dictionary.
+4. So, in defaultdict, creation of key, initialisation will happen simultaneously. 
+
+Normal Dictionary
+------------------
+1. In case of normal dictionary, if the key does not exist, "KeyError" is raised. 
+2. In order to work on the value, first the key needs to be created and initialised.
+
+55 Explain property decorator in python.
+
+#
+
+56 What is Mutable and Immutable datatypes.
+
+1. Mutable datatypes are objects whose value can be changed after creation. e.g. list, dict, set, user defined classes.
+2. Immutable datatypes are objects whose value can not be changed after creating. e.g. int, float, bool, tuple, namedtuple
+
+57 Explain get() method in dictionaries.
+
+point =  {'a': 1, 'b': 2}
+1. Values of dictionary can be accessed in two different ways. using square bracket syntax and the other one is using get() method.
+2. When we try to access a key of a dictionary which does not exist using square bracket syntax (point['c']), "KeyError" exception is raised.
+3. When we try to access a key of a dictionary which does not exist using get() method (point.get('c')), None is returned and no exception is raised.
+4. We can pass a positional argument to get() method as custom message, so that get() method returns the custom message if the key does not exist.
+           e.g. profile.get('c', 'Sorry the key does not exist')
+
+58 Write a list comprehension to get a list of even numbers from 1-50
+
+evens = [ item for item in range(1, 51) if item % 2 == 0]

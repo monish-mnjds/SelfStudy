@@ -45,6 +45,6 @@ class Sony:
         return self.first + '.' + self.last + '@sony.com'
 
 s = Sony.name('Monish Kalaiselvan')
+
 print(s.email())
-        
 -------------------------------------------------------------------

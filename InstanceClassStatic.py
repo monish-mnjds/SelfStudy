@@ -28,3 +28,23 @@ print(s1.new_dept())
 print(s2.new_dept())
 
 print(s1.email())
+------------------------------------------------------------------
+
+class Sony:
+
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
+        
+    @classmethod
+    def name(cls, fullname):
+        first, last = fullname.split(' ')
+        return cls(first, last)
+
+    def email(self):
+        return self.first + '.' + self.last + '@sony.com'
+
+s = Sony.name('Monish Kalaiselvan')
+print(s.email())
+        
+-------------------------------------------------------------------
